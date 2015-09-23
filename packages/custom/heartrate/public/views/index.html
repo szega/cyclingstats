@@ -1,0 +1,88 @@
+<div class="" data-ng-controller="HeartRateController">
+  <h1>Heart Rate Calculator <span style="font-family:'Segoe UI Symbol';">&#x1f493;</span> </h1>
+  <form class="form-horizontal">
+    <div class="col-sm-4">
+        <h3>Your age</h3>
+        <div class="form-group">
+        <!--div class="col-sm-2">-->
+          <label class="col-sm-3 control-label">Age </label>
+
+          <div class="col-sm-6">
+            <input ng-model="hrData.age" class="form-control"></input>
+          </div>
+        <!--</div>-->
+      </div>
+
+      <h3>Max heart rate</h3>
+      <div class="form-group">
+        <div class="col-sm-offset-9 col-sm-1">
+          <label class="control-label">Use</label>
+        </div>
+      </div>
+      <div class="form-group" data-toggle="tooltip" title="Calculated as 220-age">
+        <label class="col-sm-3 control-label">
+          Classic
+        </label>
+        <div class="col-sm-6">
+          <input ng-model="hrData.classic" class="form-control" disabled></input>
+        </div>
+        <label class="col-sm-3  control-label">
+          <input type="radio" class="pull-left" name="preferred" ng-model="hrData.preferred" value="classic"></input>
+        </label>
+      </div>
+
+      <div class="form-group" data-toggle="tooltip" title="Calculated as 217-0.85*age">
+        <label class="col-sm-3 control-label">
+          Miller
+        </label>
+        <div class="col-sm-6">
+          <input ng-model="hrData.miller" class="form-control" disabled></input>
+        </div>
+        <label class="col-sm-3  control-label">
+          <input type="radio" class="pull-left" name="preferred" ng-model="hrData.preferred" value="miller"></input>
+        </label>
+      </div>
+
+      <div class="form-group" data-toggle="tooltip" title="Calculated as 208-0.7*age">
+        <label class="col-sm-3 control-label">
+          Tanaka
+        </label>
+        <div class="col-sm-6">
+          <input ng-model="hrData.tanaka" class="form-control" disabled></input>
+        </div>
+        <label class="col-sm-3  control-label">
+          <input type="radio" class="pull-left" name="preferred" ng-model="hrData.preferred" value="tanaka"></input>
+        </label>
+      </div>
+      
+      <div class="form-group" data-toggle="tooltip" title="Your measurement">
+        <label class="col-sm-3 control-label">
+          Manual
+        </label>
+        <div class="col-sm-6">
+          <input ng-model="hrData.manual" class="form-control"></input>
+        </div>
+        <label class="col-sm-3  control-label">
+          <input type="radio" class="pull-left"  name="preferred" ng-model="hrData.preferred" value="manual"></input>
+        </label>
+      </div> 
+    </div>
+    <div class="col-sm-8">
+      <h3>Heart Rate Zones</h3>
+      <table class="table table-striped table-hover">
+        <th>Zone</th>
+        <th>Min</th>
+        <th>Max</th>
+        <th>Description</th>
+          
+        <tr ng-repeat="(key, value) in hrZones.abcc">
+          <td> {{key}} </td>
+          <td> <strong> {{value.min}} </strong> </td>
+          <td> <strong> {{value.max}} </strong> </td>
+          <td> {{value.description}}</td>
+        </div>
+      </table>
+    </div>
+  </form>
+</div>
+
